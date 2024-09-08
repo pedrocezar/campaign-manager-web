@@ -1,60 +1,95 @@
-import React, { useState } from 'react';
-import { createCampaign } from '../services/campaignService';
+import React, { useState, useEffect } from 'react';
+import { TextField, Button } from '@mui/material';
+import { useParams, useNavigate } from 'react-router-dom';
+import { getCampaignById, createCampaign, updateCampaign } from '../services/campaignService';
 
-const CampaignForm = ({ history }) => {
-  const [formData, setFormData] = useState({
+const CampaignForm = () => {
+  const { id } = useParams();
+  const navigate = useNavigate();
+  const [campaign, setCampaign] = useState({
     name: '',
     dateStart: '',
     dateEnd: '',
-    category: '',
-    status: 'active'
+    status: '',
+    category: ''
   });
 
+  useEffect(() => {
+    if (id) {
+      fetchCampaign(id);
+    }
+  }, [id]);
+
+  const fetchCampaign = async (id) => {
+    const response = await getCampaignById(id);
+    setCampaign(response.data);
+  };
+
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setCampaign({
+      ...campaign,
+      [e.target.name]: e.target.value
+    });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await createCampaign(formData);
-    history.push('/');
+    if (id) {
+      await updateCampaign(id, campaign);
+    } else {
+      await createCampaign(campaign);
+    }
+    navigate('/');
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      <input
-        type="text"
+      <TextField
+        label="Name"
         name="name"
-        placeholder="Campaign Name"
-        value={formData.name}
+        value={campaign.name}
         onChange={handleChange}
-        required
+        fullWidth
+        margin="normal"
       />
-      <input
-        type="date"
+      <TextField
+        label="Start Date"
         name="dateStart"
-        placeholder="Start Date"
-        value={formData.dateStart}
-        onChange={handleChange}
-        required
-      />
-      <input
         type="date"
+        value={campaign.dateStart.split('T')[0]}
+        onChange={handleChange}
+        fullWidth
+        margin="normal"
+        InputLabelProps={{ shrink: true }}
+      />
+      <TextField
+        label="End Date"
         name="dateEnd"
-        placeholder="End Date"
-        value={formData.dateEnd}
+        type="date"
+        value={campaign.dateEnd.split('T')[0]}
         onChange={handleChange}
-        required
+        fullWidth
+        margin="normal"
+        InputLabelProps={{ shrink: true }}
       />
-      <input
-        type="text"
+      <TextField
+        label="Status"
+        name="status"
+        value={campaign.status}
+        onChange={handleChange}
+        fullWidth
+        margin="normal"
+      />
+      <TextField
+        label="Category"
         name="category"
-        placeholder="Category"
-        value={formData.category}
+        value={campaign.category}
         onChange={handleChange}
-        required
+        fullWidth
+        margin="normal"
       />
-      <button type="submit">Create Campaign</button>
+      <Button onClick={() => navigate(-1)} variant="outlined" style={{ marginRight: '10px' }}>Back</Button>
+      <Button type="submit" variant="contained" color="primary">Save</Button>
     </form>
   );
 };
