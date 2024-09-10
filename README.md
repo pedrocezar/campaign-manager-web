@@ -1,9 +1,7 @@
 # Campaign Manager Web
-
 Este é o frontend de um sistema de gerenciamento de campanhas, desenvolvido em React com Material-UI. O sistema permite visualizar, criar, editar e excluir campanhas, além de listar as campanhas disponíveis com integração a uma API backend.
 
 ## Funcionalidades
-
 - Listagem de campanhas com opções de visualizar, editar e excluir.
 - Criação e edição de campanhas.
 - Validação de datas no formulário.
@@ -11,15 +9,12 @@ Este é o frontend de um sistema de gerenciamento de campanhas, desenvolvido em 
 - Utilização do Material-UI para design e componentes estilizados.
 
 ## Pré-requisitos
-
 - **Node.js** (versão 16 ou superior)
 - **npm** (ou yarn) para gerenciar pacotes
 - **Backend** configurado e em execução (ver [Campaign Manager API](https://github.com/pedrocezar/campaign-manager-ai))
 
 ## Instalação
-
 1. Clone este repositório:
-
    ```bash
    git clone https://github.com/pedrocezar/campaign-manager-web.git
    cd campaign-manager-web
