@@ -1,53 +1,51 @@
+
 # Campaign Manager Web
-Este é o frontend de um sistema de gerenciamento de campanhas, desenvolvido em React com Material-UI. O sistema permite visualizar, criar, editar e excluir campanhas, além de listar as campanhas disponíveis com integração a uma API backend.
+This is the frontend of a campaign management system, developed in React with Material-UI. The system allows you to view, create, edit, and delete campaigns, as well as list the available campaigns integrated with a backend API.
 
-## Funcionalidades
-- Listagem de campanhas com opções de visualizar, editar e excluir.
-- Criação e edição de campanhas.
-- Validação de datas no formulário.
-- Integração com uma API RESTful.
-- Utilização do Material-UI para design e componentes estilizados.
+## Features
+- List campaigns with options to view, edit, and delete.
+- Create and edit campaigns.
+- Date validation in the form.
+- Integration with a RESTful API.
+- Utilization of Material-UI for design and styled components.
 
-## Pré-requisitos
-- **Node.js** (versão 16 ou superior)
-- **npm** (ou yarn) para gerenciar pacotes
-- **Backend** configurado e em execução (ver [Campaign Manager API](https://github.com/pedrocezar/campaign-manager-ai))
+## Prerequisites
+- **Node.js** (version 16 or higher)
+- **npm** (or yarn) to manage packages
+- **Backend** configured and running (see [Campaign Manager API](https://github.com/pedrocezar/campaign-manager-ai))
 
-## Instalação
-1. Clone este repositório:
+## Installation
+1. Clone this repository:
    ```bash
    git clone https://github.com/pedrocezar/campaign-manager-web.git
    cd campaign-manager-web
-2. Instale as dependências:
-    ````bash
-    npm install
-3. Inicie o servidor de desenvolvimento:
-    ```bash
-    npm start
-A aplicação estará disponível em http://localhost:4000.
+   ```
 
-## Como Usar
-**Listar Campanhas**: A página inicial (`/campaigns`) exibe uma lista de todas as campanhas disponíveis. Você pode visualizar os detalhes, editar ou excluir uma campanha diretamente da lista.
+2. Install the dependencies:
+   ```bash
+   npm install
+   ```
 
-**Criar uma Nova Campanha**: Navegue até a página de criação de campanha clicando no botão "Add Campaign". Preencha os campos obrigatórios, incluindo as datas, e clique em "Save Campaign".
+3. Start the development server:
+   ```bash
+   npm start
+   ```
 
-**Editar Campanha**: Na página de listagem, clique em "View" para editar os detalhes da campanha selecionada.
+The application will be available at `http://localhost:4000`.
 
-**Excluir Campanha**: No botão "Delete" você pode remover uma campanha, que será marcada como "inativa".
+## How to Use
+- **List Campaigns**: The homepage (`/campaigns`) displays a list of all available campaigns. You can view details, edit, or delete a campaign directly from the list.
+- **Create a New Campaign**: Navigate to the campaign creation page by clicking the "Add Campaign" button. Fill in the required fields, including the dates, and click "Save Campaign".
+- **Edit Campaign**: On the listing page, click "View" to edit the details of the selected campaign.
+- **Delete Campaign**: You can remove a campaign by clicking the "Delete" button, which will mark the campaign as inactive.
 
-## Tecnologias Usadas
-**React.js** - Biblioteca para criação da interface de usuário.
+## Technologies Used
+- **React.js** - Library for building the user interface.
+- **Material-UI** - Component library for React with modern design.
+- **Axios** - HTTP client for integrating with the campaigns API.
+- **React Router DOM** - Frontend route management.
 
-**Material-UI** - Biblioteca de componentes para React com design moderno.
-
-**Axios** - Cliente HTTP para integração com a API de campanhas.
-
-**React Router DOM** - Gerenciamento de rotas no frontend.
-
-## Scripts Disponíveis
-`npm start` - Inicia o servidor de desenvolvimento.
-
-`npm run build` - Cria a build otimizada para produção.
-
-`npm test` - Executa os testes.
-
+## Available Scripts
+- `npm start` - Starts the development server.
+- `npm run build` - Creates the optimized build for production.
+- `npm test` - Runs the tests.
